@@ -1,1 +1,14 @@
-%p this is a terrible home page
+%h1 Third-Party Authentication
+
+%p It may be called third-party authentication, but it's first in my heart.
+
+%p
+  The idea is to delegate user authentication to a service other than you own.
+  In turn, you get to take advantage of their niceties.
+  %ul
+    %li Don't have to deal with password resetting and retrieval
+    %li Don't have to worry about hackers compromising user passwords (hi Adobe!)
+    %li If needed, can grab additional information about the user (their friends, etc.)
+
+%h3 So give it a spin!
+= link_to 'Connect with Facebook', '#', class: 'btn btn-large btn-primary'
