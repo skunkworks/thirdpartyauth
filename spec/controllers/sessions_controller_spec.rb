@@ -66,16 +66,15 @@ describe SessionsController do
     end
   end
 
-  describe '#failure' do
-    # it 'redirects to the home page' do 
-    #   get :failure, provider: user.provider
-    #   expect(response).to redirect_to('/authenticated')
-    # end
+  describe '#fail' do
+    before { get :fail }
 
-    # it 'sets a flash message' do
-    #   request.stub(:env).and_return(omniauth_hash)
-    #   get :create, provider: user.provider
-    #   expect(flash[:notice]).to eq('Logged in successfully')      
-    # end
+    it 'redirects to the home page' do 
+      expect(response).to redirect_to(root_path)
+    end
+
+    it 'sets a flash message' do
+      expect(flash[:error]).to eq('Failed to log in')      
+    end
   end
 end

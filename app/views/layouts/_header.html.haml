@@ -1,4 +1,0 @@
-- if current_user
-  %p Welcome back, #{@current_user.name}! If this is not you, #{link_to 'click here to log out', signout_path, method: :delete}.
-- else
-  = link_to 'Connect with Facebook', '/auth/facebook', class: 'btn btn-large btn-primary'

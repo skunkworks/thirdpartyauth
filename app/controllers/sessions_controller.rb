@@ -15,4 +15,9 @@ class SessionsController < ApplicationController
     flash[:notice] = "You've been logged out"
     redirect_to root_path
   end
+
+  def fail
+    flash[:error] = "Failed to log in"
+    redirect_to root_path
+  end
 end
