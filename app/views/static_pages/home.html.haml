@@ -1,16 +1,19 @@
-%h1 Third-Party Authentication
+.hero-unit
 
-%p It may be called third-party authentication, but it's first in my heart.
+  %p It may be called third-party authentication, but it's first in my heart.
 
-%p
-  The idea is to delegate user authentication to a service other than you own.
-  In turn, you get to take advantage of their niceties.
-  %ul
-    %li Don't have to deal with password resetting and retrieval
-    %li Don't have to worry about hackers compromising user passwords (hi Adobe!)
-    %li If needed, can grab additional information about the user (their friends, etc.)
+  %p
+    The idea is to delegate user authentication to a service other than you own. In turn, you get to take advantage of its niceties, such as:
+    %ul
+      %li Not having to roll your own password retrieval
+      %li Delegating password security responsibilities to a service that knows how to do it securely
+      %li Getting additional information about your users
+      %li Integrating your service with another service's API
 
-- if current_user
-  %p Welcome back, #{@current_user.name}! If this is not you, #{link_to 'click here to log out', signout_path, method: :delete}.
-- else
-  = link_to 'Connect with Facebook', '/auth/facebook', class: 'btn btn-large btn-primary'
+  %p Here's a quick sample project that uses Omniauth to use Facebook to log in.
+
+  - if current_user
+    %p Welcome back, #{@current_user.name}! If this is not you, #{link_to 'click here to log out', signout_path, method: :delete}.
+  - else
+    %h3 Give it a spin!
+    = link_to 'Connect with Facebook', 'auth/facebook', class: 'btn btn-large btn-primary'
