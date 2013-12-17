@@ -9,9 +9,3 @@
     %li Don't have to deal with password resetting and retrieval
     %li Don't have to worry about hackers compromising user passwords (hi Adobe!)
     %li If needed, can grab additional information about the user (their friends, etc.)
-
-- if current_user
-  %p Welcome back, #{@current_user.name}! If this is not you, #{link_to 'click here to log out', signout_path}.
-- else
-  %h3 So give it a spin!
-  = link_to 'Connect with Facebook', '/auth/facebook', class: 'btn btn-large btn-primary'

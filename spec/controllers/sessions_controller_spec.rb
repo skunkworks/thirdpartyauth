@@ -38,7 +38,7 @@ describe SessionsController do
     it 'redirects to the home page' do
       request.stub(:env).and_return(omniauth_hash)    
       get :create, provider: user.provider
-      expect(response).to redirect_to('/authenticated')
+      expect(response).to redirect_to(root_path)
     end
 
     it 'sets a flash message' do
@@ -48,7 +48,23 @@ describe SessionsController do
     end
   end
   
-  describe '#destroy', pending: true
+  describe '#destroy' do
+    it "deletes the logged in user's id from the session" do
+      session[:user_id] = 1
+      delete :destroy 
+      expect(session[:user_id]).to be_nil
+    end
+
+    it 'redirects to the home page' do
+      delete :destroy 
+      expect(response).to redirect_to(root_path)
+    end
+
+    it 'sets a flash message' do
+      delete :destroy 
+      expect(flash[:notice]).to eq("You've been logged out")      
+    end
+  end
 
   describe '#failure' do
     # it 'redirects to the home page' do 
