@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 1.2'
 group :development, :test do
   gem 'debugger'
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
   gem 'sqlite3'
 end
 
