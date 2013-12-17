@@ -24,12 +24,17 @@ gem 'jbuilder', '~> 1.2'
 group :development, :test do
   gem 'debugger'
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
   gem 'sqlite3'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'capybara'
 end
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 # Use ActiveModel has_secure_password

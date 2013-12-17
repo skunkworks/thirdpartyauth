@@ -1,9 +1,8 @@
 Thirdpartyauth::Application.routes.draw do
   root 'static_pages#home'
 
-  get '/auth/:provider/callback' => 'sessions#create', as: :login
-  get '/authenticated' => 'static_pages#authenticated', as: :authenticated
-
+  get 'auth/:provider/callback' => 'sessions#create', as: :login
+  post 'signout' => 'sessions#destroy', as: :signout
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -35,14 +35,31 @@ describe SessionsController do
       expect(session[:user_id]).to eq(user.id)
     end
 
-    it 'redirects to an authenticated page' do
+    it 'redirects to the home page' do
       request.stub(:env).and_return(omniauth_hash)    
       get :create, provider: user.provider
       expect(response).to redirect_to('/authenticated')
+    end
+
+    it 'sets a flash message' do
+      request.stub(:env).and_return(omniauth_hash)
+      get :create, provider: user.provider
+      expect(flash[:notice]).to eq('Logged in successfully')      
     end
   end
   
   describe '#destroy', pending: true
 
-  describe '#failure', pending: true
+  describe '#failure' do
+    # it 'redirects to the home page' do 
+    #   get :failure, provider: user.provider
+    #   expect(response).to redirect_to('/authenticated')
+    # end
+
+    # it 'sets a flash message' do
+    #   request.stub(:env).and_return(omniauth_hash)
+    #   get :create, provider: user.provider
+    #   expect(flash[:notice]).to eq('Logged in successfully')      
+    # end
+  end
 end

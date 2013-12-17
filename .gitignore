@@ -36,3 +36,4 @@ pickle-email-*.html
 .project
 config/initializers/secret_token.rb
 >>>>>>> ceeffbce6ef3c5d8d532e8fe81cf8ea95ef7f70d
+facebook.yml
